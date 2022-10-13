@@ -4,27 +4,106 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTestProect"
+        Loaded="Window_Loaded"
         mc:Ignorable="d"
-        Title="Names" Height="450" Width="800">
-    <Grid Margin="10">
+        Title="CustomMediaPlayerWindow" Height="720" Width="400">
+    <Border Padding="10">
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+                <Button x:Name="ApplyButton" Margin="0 0 10 0" Click="ApplyButton_Click" Grid.Column="0" Content="Apply"/>
+                <Button x:Name="ResetButton" Grid.Column="1" Click="ResetButton_Click" Content="Reset"/>
+                <Button x:Name="RefreshButton" Margin="10 0 0 0" Grid.Column="2" Content="Refresh"/>
+            </Grid>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+            <TextBlock Text="Pluse Properties" FontWeight="bold"  Margin="0 10" />
 
-        <Label Grid.Column="1">Names</Label>
-        <ListBox Grid.Row="1" x:Name="lstNames" />
+            <TextBlock Text="Description"/>
+            <TextBox x:Name="DescriptionTextBox" Padding="2"/>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5,0,0,0">
-            <TextBox x:Name="txtName" />
-            <Button x:Name="btnAdd" Margin="0,5,0,0" Click="ButtonAddName_Click">Add Name</Button>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="0 0 10 0">
+                    <TextBlock Text="Status"/>
+                    <TextBox IsReadOnly="True" Padding="2"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Revesion"/>
+                    <TextBox Padding="2"/>
+                </StackPanel>
+            </Grid>
+
+            <TextBlock Text="Part Number"/>
+            <TextBox Padding="2"/>
+
+            <TextBlock Text="Raw Material" FontWeight="bold"  Margin="0 10" />
+
+            <TextBlock Text="Material"/>
+            <ComboBox Padding="2"/>
+
+            <TextBlock Text="Manufaturing Information" FontWeight="bold"  Margin="0 10" />
+
+            <TextBlock Text="Work Center"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <CheckBox Checked="Checkbox_Checked" x:Name="ACheckBox" Content="A"/>
+                    <CheckBox Checked="Checkbox_Checked" x:Name="BCheckBox" Content="B"/>
+                    <CheckBox Checked="Checkbox_Checked" x:Name="CCheckBox" Content="C"/>
+                    <CheckBox Checked="Checkbox_Checked" x:Name="DCheckBox" Content="D"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <CheckBox  Checked="Checkbox_Checked" x:Name="ECheckBox" Content="E"/>
+                    <CheckBox  Checked="Checkbox_Checked" x:Name="FCheckBox" Content="F"/>
+                    <CheckBox  Checked="Checkbox_Checked" x:Name="GCheckBox" Content="G"/>
+                    <CheckBox  Checked="Checkbox_Checked" x:Name="HCheckBox" Content="H"/>
+                </StackPanel>
+            </Grid>
+
+            <TextBlock Text="Length"/>
+            <TextBox x:Name="LenghtTextBox"  Padding="2"/>
+
+            <TextBlock Text="Mass"/>
+            <TextBox Padding="2"/>
+
+            <TextBlock Text="Finish"/>
+            <ComboBox SelectionChanged="FinishDropdow_SelectionChange" x:Name="FinishDropdown" SelectedIndex="0" Padding="2">
+                <ComboBoxItem>Painted</ComboBoxItem>
+                <ComboBoxItem>Not Painted</ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock Text="Purchase Information"/>
+            <ComboBox SelectedIndex="0" Padding="2">
+                <ComboBoxItem>Rubber</ComboBoxItem>
+                <ComboBoxItem>Not Rubber</ComboBoxItem>
+            </ComboBox>
+
+            <TextBlock Text="Supplier Name"/>
+            <TextBox x:Name="SupplierNameText" TextChanged="SupplierNameText_TextChanged" Padding="2"/>
+
+            <TextBlock Text="Supplier Code"/>
+            <TextBox x:Name="SupplierCodeText" Padding="2"/>
+
+            <TextBlock Text="Additional Information" FontWeight="bold"  Margin="0 10" />
+            
+            <TextBlock Text="Note"/>
+            <TextBox x:Name="NoteTextBox" Padding="2"/>
+
         </StackPanel>
-
-    </Grid>
+    </Border>
 </Window>
