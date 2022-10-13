@@ -25,13 +25,40 @@ namespace WPFTestProect
             InitializeComponent();
         }
 
-        private void ButtonAddName_Click(object sender, RoutedEventArgs e)
+        private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtName.Text) && !lstNames.Items.Contains(txtName.Text))
+
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.ACheckBox.IsChecked = this.BCheckBox.IsChecked = this.CCheckBox.IsChecked = this.DCheckBox.IsChecked
+                = this.ECheckBox.IsChecked = this.FCheckBox.IsChecked = this.GCheckBox.IsChecked
+                = this.HCheckBox.IsChecked = false;
+        }
+
+        private void Checkbox_Checked(object sender, RoutedEventArgs e)
+        {
+            this.LenghtTextBox.Text += ((CheckBox)sender).Content;
+        }
+
+        private void FinishDropdow_SelectionChange(object sender, SelectionChangedEventArgs e)
+        {
+            if(this.NoteTextBox == null)
             {
-                lstNames.Items.Add(txtName.Text);
-                txtName.Clear();
+                return;
             }
+            this.NoteTextBox.Text = (string)((ComboBoxItem)((ComboBox)sender).SelectedValue).Content;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            FinishDropdow_SelectionChange(this.FinishDropdown, null);
+        }
+
+        private void SupplierNameText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            this.SupplierCodeText.Text = this.SupplierNameText.Text;
         }
     }
 }
